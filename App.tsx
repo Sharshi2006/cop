@@ -26,6 +26,7 @@ const App: React.FC = () => {
   const [activeVoiceField, setActiveVoiceField] = useState<string | null>(null);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cameraInputRef = useRef<HTMLInputElement>(null);
 
   // Robust Theme Sync
   useEffect(() => {
@@ -335,6 +336,17 @@ const App: React.FC = () => {
                 <h4 className="font-black text-xl tracking-tight text-slate-900 dark:text-white">Industrial OCR Scan</h4>
                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Multi-row handwriting extraction</p>
               </div>
+
+              <div 
+                onClick={() => cameraInputRef.current?.click()}
+                className="group cursor-pointer p-10 rounded-[2.5rem] border-2 border-dashed border-slate-300 dark:border-slate-800 bg-white dark:bg-slate-900/40 hover:border-green-500 hover:bg-green-500/5 transition-all text-center"
+              >
+                <div className="w-20 h-20 mx-auto bg-slate-100 dark:bg-slate-800 rounded-3xl flex items-center justify-center group-hover:scale-110 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-all shadow-sm mb-4">
+                  <svg className="w-10 h-10 text-slate-400 dark:text-slate-600 group-hover:text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 3c4.97 0 9 3.582 9 8s-4.03 8-9 8c-1.946 0-3.77-.577-5.3-1.559A6 6 0 0 1 3 11c0-4.418 4.03-8 9-8zm0 0c4.97 0 9 3.582 9 8s-4.03 8-9 8c-1.946 0-3.77-.577-5.3-1.559A6 6 0 0 1 3 11c0-4.418 4.03-8 9-8z"/><circle cx="12" cy="11" r="2.5" fill="none" stroke="currentColor" strokeWidth="2.5"/></svg>
+                </div>
+                <h4 className="font-black text-xl tracking-tight text-slate-900 dark:text-white">Camera Capture</h4>
+                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mt-1">Real-time photo upload</p>
+              </div>
             </div>
 
             <div className="lg:col-span-7 space-y-6">
@@ -429,6 +441,7 @@ const App: React.FC = () => {
       </main>
 
       <input ref={fileInputRef} type="file" accept="image/*" multiple className="hidden" onChange={handleFileUpload} />
+      <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" className="hidden" onChange={handleFileUpload} />
     </div>
   );
 };
