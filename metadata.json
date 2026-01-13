@@ -1,0 +1,8 @@
+{
+  "name": "LogAuto-Fill AI",
+  "description": "OCR-powered tool to extract handwritten log data (SC NO, DTR Code, Feeder, Location) and sync to Google Sheets using Gemini AI.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
