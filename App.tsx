@@ -365,6 +365,7 @@ const App: React.FC = () => {
                         <th className="px-6 py-5 text-[10px] font-black text-slate-500 uppercase tracking-widest border-b dark:border-slate-800">Status</th>
                         <th className="px-6 py-5 text-[10px] font-black text-slate-500 uppercase tracking-widest border-b dark:border-slate-800">SC Number</th>
                         <th className="px-6 py-5 text-[10px] font-black text-slate-500 uppercase tracking-widest border-b dark:border-slate-800">DTR Code</th>
+                        <th className="px-6 py-5 text-[10px] font-black text-slate-500 uppercase tracking-widest border-b dark:border-slate-800">Feeder Name</th>
                         <th className="px-6 py-5 text-[10px] font-black text-slate-500 uppercase tracking-widest border-b dark:border-slate-800">Site</th>
                       </tr>
                     </thead>
@@ -379,11 +380,12 @@ const App: React.FC = () => {
                           </td>
                           <td className="px-6 py-5 font-mono text-sm font-bold text-slate-900 dark:text-white group-hover:text-blue-600 transition-colors">{l.scNo}</td>
                           <td className="px-6 py-5 text-xs font-bold text-slate-600 dark:text-slate-400">{l.dtrCode}</td>
+                          <td className="px-6 py-5 text-[11px] font-medium text-slate-600 dark:text-slate-400">{l.feederName}</td>
                           <td className="px-6 py-5 text-[11px] text-slate-400 font-medium italic truncate max-w-[150px]">{l.location}</td>
                         </tr>
                       ))}
                       {filteredLogs.length === 0 && !isLoadingLogs && (
-                        <tr><td colSpan={4} className="py-40 text-center font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.3em] text-xs">No records found</td></tr>
+                        <tr><td colSpan={5} className="py-40 text-center font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.3em] text-xs">No records found</td></tr>
                       )}
                     </tbody>
                   </table>
