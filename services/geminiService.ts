@@ -29,7 +29,11 @@ export const extractLogData = async (base64Images: string[]): Promise<LogEntry[]
   `;
 
   try {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const apiKey = import.meta.env.VITE_API_KEY;
+    if (!apiKey) {
+      throw new Error("VITE_API_KEY is not configured. Please add it to your .env.local file.");
+    }
+    const ai = new GoogleGenAI({ apiKey });
     
     const imageParts = base64Images.map(base64 => {
       // Clean base64 strings if they contain data:image/...;base64,
